@@ -34,4 +34,16 @@ class Project
     end
     found_project
   end
+
+  def volunteers
+    volunteers = []
+    raw_volunteers = DB.exec("SELECT * FROM volunteers WHERE project_id = '#{@id}'")
+    raw_volunteers.each do |volunteer|
+      id = volunteer.fetch("id").to_i
+      project_id = volunteer.fetch("project_id").to_i
+      name = volunteer.fetch("name")
+      volunteers.push(Volunteer.new({id: id, project_id: project_id, name: name}))
+    end
+    volunteers
+  end
 end
