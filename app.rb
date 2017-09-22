@@ -20,3 +20,13 @@ post('/') do
   @projects = Project.all
   erb(:index)
 end
+
+get ('/project/:id') do
+  @project = Project.find(params["id"].to_i)
+  erb(:project)
+end
+
+get ('/project/edit/:id') do
+  @project = Project.find(params["id"].to_i)
+  erb(:project_edit)
+end
