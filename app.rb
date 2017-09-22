@@ -30,3 +30,10 @@ get ('/project/edit/:id') do
   @project = Project.find(params["id"].to_i)
   erb(:project_edit)
 end
+
+patch ('/project/:id') do
+  id = params["id"].to_i
+  @project = Project.find(id)
+  @project.update({title: params.fetch("title"), id: id})
+  erb(:project)
+end
