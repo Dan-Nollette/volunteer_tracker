@@ -46,4 +46,9 @@ class Project
     end
     volunteers
   end
+
+  def update(attributes)
+    @id = attributes.fetch(:id)
+    @title = attributes.fetch(:title)
+  end
 end
