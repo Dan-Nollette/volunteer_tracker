@@ -1,3 +1,17 @@
 <h1>Details for: <%=@project.title%></h1>
-
+<%if @volunteers != nil %>
+  <h3>Volunteers for this project</h3>
+  <% @volunteers.each do |volunteer|%>
+    <a href="/volunteers/<%=volunteer.id%>"><%=volunteer.name%></a>
+    <br>
+  <%end %>
+<%end %>
+<form action="/projects/<%=@project.id%>" method="post">
+  <div class="form-group">
+    Enter the name of a new volunteer to add them to the project<br>
+    <label for="name">Name:</label>
+    <input id="name" name="name" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn">Create Volunteer</button>
+</form>
 <a href="/projects/<%=@project.id%>/edit">Edit Project</a>
