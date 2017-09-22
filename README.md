@@ -10,10 +10,10 @@ _An app to record words and their definitions_
 
 ## Setup/Installation Requirements
 
-* _Open the terminal and navigate to the place where you would like to store the project.
-* Run_ `git clone https://github.com/Dan-Nollette/volunteer_tracker`
+* _Open the terminal and navigate to the place where you would like to store the project._
+* _Run_ `git clone https://github.com/Dan-Nollette/volunteer_tracker`
 * _run_ `ruby app.rb`
-* _You may need to set up the database that is saved in this repo. I'm Not sure how ¯\_(ツ)_/¯_
+* _The database is saved in_ `./my_database.sql`
 ## Known Bugs
 
 _no known bugs at this time._
