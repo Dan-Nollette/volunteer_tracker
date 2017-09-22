@@ -58,8 +58,6 @@ end
 
 patch ('/volunteers/:id') do
   id = params.fetch("id").to_i()
-  puts id
-  puts params.fetch("id").to_i()
   new_name = params.fetch("name")
   @volunteer = Volunteer.find(id)
   @volunteer.update({id: id, name: new_name, project_id: @volunteer.project_id})
@@ -72,4 +70,12 @@ get ('/volunteers/:id') do
   @volunteer = Volunteer.find(params.fetch("id").to_i())
   @project = Project.find(@volunteer.project_id)
   erb(:volunteer_details)
+end
+
+delete("/projects/:id") do
+  volunteer = Volunteer.find(params.fetch("delete_id").to_i())
+  volunteer.delete
+  @project = Project.find(params["id"].to_i)
+  @volunteers = @project.volunteers
+  erb(:project)
 end
